@@ -23,4 +23,6 @@ for file in all_files:
         filter_conditions = (all_data['lat'] >= tower.latitude - .1) & (all_data['lat'] <= tower.latitude + .1) & (
             all_data['lon'] >= tower.longitude - .1) & (all_data['lon'] <= tower.longitude + .1)
         filtered_nc = all_data.where(filter_conditions, drop=True)
-        filtered_nc.to_netcdf(path=savename, mode="w")
+        if(filtered_nc.dims['points_dimension'] > 0):
+            print(filtered_nc.dims['points_dimension'])
+            filtered_nc.to_netcdf(path=savename, mode="w")

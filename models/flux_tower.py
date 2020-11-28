@@ -1,13 +1,14 @@
 from dataclasses import dataclass
 
 from dataclass_csv import DataclassReader
+import numpy as np
 
 
 @dataclass
 class FluxTower:
     index: int
-    latitude: float
-    longitude: float
+    latitude: np.float64
+    longitude: np.float64
     years_of_data: str = ""
     site_start: int = 0
     site_end: int = 0
